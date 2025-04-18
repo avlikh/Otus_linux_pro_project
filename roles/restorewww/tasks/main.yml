@@ -1,0 +1,73 @@
+---
+# tasks file for restorewww
+  - name: create a directory if it does not exist /www
+    ansible.builtin.file:
+      path   : /www
+      state  : directory
+      mode   : '0777'
+
+  - name: create a directory if it does not exist /backup
+    ansible.builtin.file:
+      path   : /backup
+      state  : directory
+      mode   : '0777'
+
+  - name: Add line NFS /www to /etc/fstab
+    ansible.builtin.lineinfile:
+      path   : /etc/fstab
+      line   : backup.{{ domain }}:/www                          /www        nfs   rw        0  0
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: Add line NFS /backup to /etc/fstab
+    ansible.builtin.lineinfile:
+      path   : /etc/fstab
+      line   : backup.{{ domain }}:/backup                          /backup        nfs   rw        0  0
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: Execute command mount /www and /backup
+    shell: 
+      cmd: "systemctl daemon-reload && mount -a"
+
+  - name: create a directory if it does not exist /scripts
+    file:
+      path   : /scripts
+      state  : directory
+      mode   : '0755'
+
+  - name: copy backup and restore scripts backup_mysql.sh
+    copy:
+      src   : backup_www.sh
+      dest  : /scripts/backup_www.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: copy backup and restore scripts backup_mysql.sh
+    copy:
+      src   : restore_www.sh
+      dest  : /scripts/restore_www.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: Run script restore /www folder from latest backup 
+    shell: 
+      cmd: /scripts/restore_www.sh
+
+  - name: copy cron file
+    copy:
+      src   : root
+      dest  : /var/spool/cron/crontabs/root
+      owner : root
+      group : root
+      mode  : '0600'
+      backup: yes
+...

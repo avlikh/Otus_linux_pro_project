@@ -1,0 +1,432 @@
+---
+# tasks file for monitoring
+  - name: copy sources.list
+    template:
+      src   : sources.list.j2
+      dest  : /etc/apt/sources.list
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: yes
+
+  - name: install a list of basic packages
+    apt:
+      pkg:
+      - mc
+      - nfs-kernel-server
+      - telnet
+      - tree
+      - cifs-utils
+      - tcpdump
+      - sudo
+      - wget
+      - curl
+      - gnupg2
+      - zip
+      update_cache: yes
+#      - prometheus-node-exporter
+#      - prometheus-nginx-exporter
+#      - prometheus
+
+  - name: add line 1 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '####### add to all hostfiles #######'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 2 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ backup }}	backup.{{ domain }}	#Backup'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 3 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ nginx }}	nginx.{{ domain }}		#Nginx'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 4 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ apache1 }}	apache1.{{ domain }}		#Apache 1'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 5 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ apache2 }}	apache2.{{ domain }}		#Apache 2'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 6 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ mysqlsrs }}	mysqlsrs.{{ domain }}	#MySQL source'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 7 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ mysqlrep }}	mysqlrep.{{ domain }}	#MySQL replica'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 8 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ monitor }}	monitor.{{ domain }}		#Monitoring'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 9 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ elk }}	elk.{{ domain }}		#ELK stack'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 10 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '###########################'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+#  - name: transfer config for Prometheus
+#    copy: 
+#      src: prometheus.yml
+#      dest: /etc/prometheus/prometheus.yml
+#      owner: root
+#      group: root
+#      mode: '644'
+
+#  - name: restart prometheus
+#    systemd:
+#      unit: prometheus
+#      state: restarted
+#      enabled: yes
+#      daemon_reload: yes
+
+  - name: create a directory if it does not exist /backup
+    ansible.builtin.file:
+      path   : /backup
+      state  : directory
+      mode   : '0777'
+
+  - name: Add line NFS /backup to /etc/fstab
+    ansible.builtin.lineinfile:
+      path   : /etc/fstab
+      line   : backup.{{ domain }}:/backup                          /backup        nfs   rw        0  0
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: Execute command mount /backup
+    shell: 
+      cmd: "systemctl daemon-reload && mount -a"
+
+  - name: Download Zabbix release package
+    get_url:
+      url: https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+      dest: /tmp/zabbix-release_latest_7.2+debian12_all.deb
+
+  - name: Install Zabbix release package
+    apt:
+      deb: /tmp/zabbix-release_latest_7.2+debian12_all.deb
+
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+
+  - name: Install Zabbix server and agent packages
+    apt:
+      name:
+        - zabbix-server-mysql
+        - zabbix-frontend-php
+        - zabbix-apache-conf
+        - zabbix-sql-scripts
+        - zabbix-agent2
+      state: present
+
+  - name: Remove mariadb-client-core package
+    apt:
+       name: mariadb-client-core
+       state: absent
+
+  - name: copy MySQL repository
+    template:
+      src   : mysql.list.j2
+      dest  : /etc/apt/sources.list.d/mysql.list
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: no
+
+  - name: copy MySQL repository keyring
+    copy:
+      src   : mysql-apt-config.gpg
+      dest  : /usr/share/keyrings/mysql-apt-config.gpg
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: no
+
+  - name: Update repositories cache and install mysql
+    apt:
+      pkg:
+      - mysql-server
+      - gnupg
+      update_cache: yes
+
+  - name: create a directory if it does not exist /scripts
+    file:
+      path   : /scripts
+      state  : directory
+      mode   : '0755'
+
+  - name: copy backup script backup_mysql.sh
+    copy:
+      src   : backup_mysql.sh
+      dest  : /scripts/backup_mysql.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: copy restore script restore_mysql.sh
+    template:
+      src   : restore_mysql.sh.j2
+      dest  : /scripts/restore_mysql.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: restore zabbix MySQL database
+    shell: 
+      cmd: "/scripts/restore_mysql.sh"
+
+  - name: copy backup and restore scripts backup_grafana.sh
+    copy:
+      src   : backup_grafana.sh
+      dest  : /scripts/backup_grafana.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: copy backup and restore scripts restore_grafana.sh
+    copy:
+      src   : restore_grafana.sh
+      dest  : /scripts/restore_grafana.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: copy open rsa key for Apache2
+    copy: 
+      src: "../../files/fullchain.pem"
+      dest: /etc/ssl/certs/fullchain.pem
+      owner: root
+      group: root
+      mode: '600'
+
+  - name: copy private rsa key for Apache2
+    copy: 
+      src: "../../files/cert.key"
+      dest: /etc/ssl/private/cert.key
+      owner: root
+      group: root
+      mode: '600'
+
+  - name: copy apache2 ssl config
+    copy:
+      src   : default-ssl.conf
+      dest  : /etc/apache2/sites-available/default-ssl.conf
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: yes
+
+  - name: Enable SSL module in Apache
+    command: a2enmod ssl
+    args:
+      creates: /etc/apache2/mods-enabled/ssl.load
+
+  - name: Enable default SSL site
+    command: a2ensite default-ssl.conf
+    args:
+      creates: /etc/apache2/sites-enabled/default-ssl.conf
+
+  - name: restart apache2
+    systemd:
+      unit: apache2
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: copy zabbix web config
+    template:
+      src   : zabbix.conf.php.j2
+      dest  : /etc/zabbix/web/zabbix.conf.php
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: yes
+
+  - name: copy zabbix server config
+    template:
+      src   : zabbix_server.conf.j2
+      dest  : /etc/zabbix/zabbix_server.conf
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: yes
+
+  - name: create a directory if it does not exist /etc/zabbix/zabbix_server.d
+    file:
+      path   : /etc/zabbix/zabbix_server.d
+      state  : directory
+      mode   : '0755'
+
+  - name: copy zabbix binary file /usr/sbin/zabbix_server
+    copy:
+      src   : zabbix_server
+      dest  : /usr/sbin/zabbix_server
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: copy zabbix server service
+    copy:
+      src   : zabbix-server.service
+      dest  : /lib/systemd/system/zabbix-server.service
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: yes
+
+  - name: restart zabbix server service
+    systemd:
+      unit: zabbix-server.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Execute command install Grafana
+    shell: 
+      cmd: cd /tmp && apt-get install -y adduser libfontconfig1 musl && wget https://dl.grafana.com/oss/release/grafana_10.4.2_amd64.deb && dpkg -i grafana_10.4.2_amd64.deb
+
+  - name: start and enable Grafana
+    systemd:
+      unit: grafana-server.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Install grafana-cli plugin for Zabbix
+    command: grafana-cli plugins install alexanderzobnin-zabbix-app
+
+  - name: Run script restore grafana database from latest backup 
+    shell: 
+      cmd: /scripts/restore_grafana.sh
+
+  - name: Start grafana-server
+    service:
+      name: grafana-server
+      state: started
+
+  - name: copy cron file
+    copy:
+      src   : root
+      dest  : /var/spool/cron/crontabs/root
+      owner : root
+      group : root
+      mode  : '0600'
+      backup: yes
+
+  - name: restart cron service
+    systemd:
+      unit: cron.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Ensure /install_tmp directory exists
+    file:
+      path: /install_tmp
+      state: directory
+      mode: '0755'
+      owner: root
+      group: root  
+
+  - name: Check file exists /install_tmp/filebeat_8.9.1_amd64.deb
+    stat:
+      path: /install_tmp/filebeat_8.9.1_amd64.deb
+    register: filebeat_deb
+
+  - name: Downloading filebeat_8.9.1_amd64.deb
+    get_url:
+      url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.9.1-amd64.deb
+      dest: /install_tmp/filebeat_8.9.1_amd64.deb
+      mode: '0644'
+    when: not filebeat_deb.stat.exists
+
+  - name: install Filebeat for NGINX
+    apt:
+      deb: /install_tmp/filebeat_8.9.1_amd64.deb
+
+  - name: rm filebeat_8.9.1_amd64.deb file after install
+    file:
+      path: /install_tmp/filebeat_8.9.1_amd64.deb
+      state: absent
+
+  - name: transfer config for Filebeat
+    template: 
+      src: filebeat.yml.j2
+      dest: /etc/filebeat/filebeat.yml
+      owner: root
+      group: root
+      mode: '600'
+
+  - name: restart Filebeat
+    systemd:
+      unit: filebeat.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: rm temp install directory /install_tmp
+    file:
+      path: /install_tmp
+      state: absent
+...

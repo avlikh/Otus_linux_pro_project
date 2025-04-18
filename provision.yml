@@ -1,0 +1,73 @@
+---
+- name: add RSA keys to all hosts 
+  hosts: all
+  gather_facts: yes
+  become: yes
+  roles:
+    - keys
+  tags: keys
+
+- name: Backup
+  hosts: backup
+  gather_facts: yes
+  become: yes
+  roles:
+    - backup
+  tags: backup
+
+- name: Nginx setup
+  hosts: nginx
+  gather_facts: yes
+  become: yes
+  roles:
+    - nginx
+  tags: nginx
+
+- name: Apache1 setup
+  hosts: apache1
+  gather_facts: yes
+  become: yes
+  roles:
+    - apache1
+  tags: apache1
+
+- name: Apache2 setup
+  hosts: apache2
+  gather_facts: yes
+  become: yes
+  roles:
+    - apache2
+  tags: apache2
+
+- name: Mysql source/replica setup and restore DB from backup 
+  hosts: mysqlsrs, mysqlrep
+  gather_facts: yes
+  become: yes
+  roles:
+    - mysql
+  tags: mysql
+
+- name: Restore www from backup 
+  hosts: mysqlrep
+  gather_facts: yes
+  become: yes
+  roles:
+    - restorewww
+  tags: restorewww
+
+- name: Monitoring setup 
+  hosts: monitor
+  gather_facts: yes
+  become: yes
+  roles:
+    - monitoring
+  tags: monitoring
+
+- name: Monitoring setup 
+  hosts: elk
+  gather_facts: yes
+  become: yes
+  roles:
+    - elk
+  tags: elk
+...

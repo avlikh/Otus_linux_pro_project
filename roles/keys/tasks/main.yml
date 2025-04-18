@@ -1,0 +1,17 @@
+---
+# tasks file for keys
+  - name: copy RSA keys for SSH
+    copy:
+      src   : /root/.ssh/id_rsa.pub
+      dest  : /root/.ssh/authorized_keys
+      owner : root
+      group : root
+      mode  : '0600'
+      backup: no
+
+  - name: restart SSH service
+    systemd:
+      unit: ssh
+      state: restarted
+      daemon_reload: yes  
+...

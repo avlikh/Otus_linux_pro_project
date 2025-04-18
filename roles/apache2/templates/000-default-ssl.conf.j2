@@ -1,0 +1,18 @@
+<VirtualHost *:443>
+    ServerAdmin admin@yourdomain.com
+    ServerName apache2.{{ domain }}
+    ServerAlias www.{{ domain }}
+
+    DocumentRoot /www/wordpress
+
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/fullchain.pem
+    SSLCertificateKeyFile /etc/ssl/private/cert.key
+
+    <Directory /www/wordpress>
+        AllowOverride All
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>

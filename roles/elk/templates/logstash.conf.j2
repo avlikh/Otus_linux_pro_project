@@ -1,0 +1,67 @@
+input {
+    beats {
+        port => 5400
+    }
+}
+
+filter {
+    # Обработка NGINX логов
+    if "nginx" in [tags] {
+        grok {
+            match => [ "message" , "%{COMBINEDAPACHELOG}+%{GREEDYDATA:extra_fields}" ]
+            overwrite => [ "message" ]
+        }
+        mutate {
+            convert => ["response", "integer"]
+            convert => ["bytes", "integer"]
+            convert => ["responsetime", "float"]
+        }
+        date {
+            match => [ "timestamp" , "dd/MMM/YYYY:HH:mm:ss Z" ]
+            remove_field => [ "timestamp" ]
+        }
+        useragent {
+            source => "agent"
+        }
+    }
+
+    # Обработка journald логов
+    if "journald" in [tags] {
+        json {
+            source => "message"
+            skip_on_invalid_json => true
+        }
+        mutate {
+            add_field => { "log_type" => "journald" }
+        }
+        # Сохраняем server_name в поле верхнего уровня
+        if [server_name] {
+            mutate {
+                add_field => { "server_name" => "%{[server_name]}" }
+            }
+        }
+        mutate {
+            remove_field => ["host", "@version", "ecs", "input", "agent", "log", "event"]
+        }
+    }
+}
+
+output {
+    if "nginx" in [tags] {
+        elasticsearch {
+            hosts => ["http://localhost:9200"]
+            index => "weblogs-%{+YYYY.MM.dd}"
+            document_type => "nginx_logs"
+        }
+        stdout { codec => rubydebug }
+    }
+
+    if "journald" in [tags] {
+        elasticsearch {
+            hosts => ["http://localhost:9200"]
+            index => "journald-%{+YYYY.MM.dd}"
+            document_type => "journald_logs"
+        }
+        stdout { codec => rubydebug }
+    }
+}

@@ -1,0 +1,392 @@
+---
+# tasks file for elk
+  - name: copy sources.list
+    template:
+      src   : sources.list.j2
+      dest  : /etc/apt/sources.list
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: yes
+
+  - name: install a list of basic packages
+    ansible.builtin.apt:
+      pkg:
+      - mc
+      - nfs-kernel-server
+      - telnet
+      - tree
+      - cifs-utils
+      - tcpdump
+      - sudo
+      - wget
+      - curl
+      - gnupg2
+      - zip
+      - default-jdk
+      update_cache: yes
+#      - prometheus-node-exporter
+
+  - name: add line 1 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '####### add to all hostfiles #######'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 2 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ backup }}	backup.{{ domain }}	#Backup'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 3 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ nginx }}	nginx.{{ domain }}		#Nginx'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 4 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ apache1 }}	apache1.{{ domain }}		#Apache 1'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 5 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ apache2 }}	apache2.{{ domain }}		#Apache 2'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 6 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ mysqlsrs }}	mysqlsrs.{{ domain }}	#MySQL source'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 7 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ mysqlrep }}	mysqlrep.{{ domain }}	#MySQL replica'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 8 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ monitor }}	monitor.{{ domain }}		#Monitoring'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 9 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ elk }}	elk.{{ domain }}		#ELK stack'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 10 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '###########################'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: create a directory if it does not exist /backup
+    ansible.builtin.file:
+      path   : /backup
+      state  : directory
+      mode   : '0777'
+
+  - name: Add line NFS /backup to /etc/fstab
+    ansible.builtin.lineinfile:
+      path   : /etc/fstab
+      line   : backup.{{ domain }}:/backup                          /backup        nfs   rw        0  0
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: Execute command mount /backup
+    shell: 
+      cmd: "systemctl daemon-reload && mount -a"
+
+  - name: create a directory if it does not exist /scripts
+    file:
+      path   : /scripts
+      state  : directory
+      mode   : '0755'
+
+  - name: copy backup and restore scripts backup_elk.sh
+    copy:
+      src   : backup_elk.sh
+      dest  : /scripts/backup_elk.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: copy backup and restore scripts restore_elk.sh
+    copy:
+      src   : restore_elk.sh
+      dest  : /scripts/restore_elk.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+
+  - name: Download Zabbix repo package
+    get_url:
+      url: "https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb"
+      dest: "/tmp/zabbix-release_latest_7.2+debian12_all.deb"
+
+  - name: Install Zabbix repo package
+    apt:
+      deb: "/tmp/zabbix-release_latest_7.2+debian12_all.deb"
+
+  - name: Zabbix agent 2 install - install 7.2 latest agent
+    apt:
+      pkg:
+      - zabbix-agent2
+      update_cache: yes
+
+  - name: make zabbix_agent2.conf from template
+    template: 
+      src: zabbix_agent2.conf.j2
+      dest: /etc/zabbix/zabbix_agent2.conf
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: make zabbix_agentd.psk from template
+    template: 
+      src: zabbix_agentd.psk.j2
+      dest: /etc/zabbix/zabbix_agentd.psk
+      owner: zabbix
+      group: zabbix
+      mode: '400'
+  
+  - name: restart Zabbix agent 2
+    systemd:
+      unit: zabbix-agent2.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Create directory /install_tmp, if no exists
+    file:
+      path: /install_tmp
+      state: directory
+      mode: '0755'
+
+  - name: Check file exists /install_tmp/elasticsearch-8.9.1-amd64.deb
+    stat:
+      path: /install_tmp/elasticsearch-8.9.1-amd64.deb
+    register: elasticsearch_deb
+
+  - name: Downloading elasticsearch-8.9.1-amd64.deb
+    get_url:
+      url: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb
+      dest: /install_tmp/elasticsearch-8.9.1-amd64.deb
+      mode: '0644'
+    when: not elasticsearch_deb.stat.exists
+
+  - name: install elasticsearch
+    apt:
+      deb: /install_tmp/elasticsearch-8.9.1-amd64.deb
+
+  - name: rm elasticsearch-8.9.1-amd64.deb file after install
+    file:
+      path: /install_tmp/elasticsearch-8.9.1-amd64.deb
+      state: absent
+
+  - name: transfer Java config for Elasticsearch
+    template: 
+      src: jvm.options.j2
+      dest: /etc/elasticsearch/jvm.options.d/jvm.options
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: transfer config for Elasticsearch
+    template: 
+      src: elasticsearch.yml.j2
+      dest: /etc/elasticsearch/elasticsearch.yml
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: Run script restore elastic settings from latest backup 
+    shell: 
+      cmd: /scripts/restore_elk.sh
+
+  - name: restart and enable Elasticsearch
+    systemd:
+      unit: elasticsearch.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Check file exists /install_tmp/kibana-8.9.1-amd64.deb
+    stat:
+      path: /install_tmp/kibana-8.9.1-amd64.deb
+    register: kibana_deb
+
+  - name: Downloading kibana_8.9.1_amd64.deb
+    get_url:
+      url: https://artifacts.elastic.co/downloads/kibana/kibana-8.9.1-amd64.deb
+      dest: /install_tmp/kibana-8.9.1-amd64.deb
+      mode: '0644'
+    when: not kibana_deb.stat.exists
+
+  - name: install Kibana
+    apt:
+      deb: /install_tmp/kibana-8.9.1-amd64.deb
+
+  - name: rm kibana-8.9.1-amd64.deb file after install
+    file:
+      path: /install_tmp/kibana-8.9.1-amd64.deb
+      state: absent
+
+  - name: transfer config for Kibana
+    template: 
+      src: kibana.yml.j2
+      dest: /etc/kibana/kibana.yml
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: restart and enable Kibana
+    systemd:
+      unit: kibana.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Check file exists /install_tmp/logstash-8.9.1-amd64.deb
+    stat:
+      path: /install_tmp/logstash-8.9.1-amd64.deb
+    register: logstash_deb
+
+  - name: Downloading logstash-8.9.1-amd64.deb
+    get_url:
+      url: https://artifacts.elastic.co/downloads/logstash/logstash-8.9.1-amd64.deb
+      dest: /install_tmp/logstash-8.9.1-amd64.deb
+      mode: '0644'
+    when: not logstash_deb.stat.exists
+
+  - name: Install Logstash
+    apt:
+      deb: /install_tmp/logstash-8.9.1-amd64.deb
+
+  - name: rm logstash-8.9.1-amd64.deb file after install
+    file:
+      path: /install_tmp/logstash-8.9.1-amd64.deb
+      state: absent
+
+  - name: transfer config 1 for Logstash
+    template: 
+      src: logstash.yml.j2
+      dest: /etc/logstash/logstash.yml
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: transfer config 2 for Logstash
+    template: 
+      src: logstash.conf.j2
+      dest: /etc/logstash/conf.d/logstash.conf
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: restart and enable Logstash
+    systemd:
+      unit: logstash.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Check file exists /install_tmp/filebeat-8.9.1-amd64.deb
+    stat:
+      path: /install_tmp/filebeat-8.9.1-amd64.deb
+    register: filebeat_deb
+
+  - name: Downloading filebeat-8.9.1-amd64.deb
+    get_url:
+      url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.9.1-amd64.deb
+      dest: /install_tmp/filebeat-8.9.1-amd64.deb
+      mode: '0644'
+    when: not filebeat_deb.stat.exists
+
+  - name: Install Filebeat
+    apt:
+      deb: /install_tmp/filebeat-8.9.1-amd64.deb
+
+  - name: rm filebeat-8.9.1-amd64.deb file after install
+    file:
+      path: /install_tmp/filebeat-8.9.1-amd64.deb
+      state: absent
+
+  - name: transfer config for Filebeat
+    template: 
+      src: filebeat.yml.j2
+      dest: /etc/filebeat/filebeat.yml
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: restart and enable Filebeat
+    systemd:
+      unit: filebeat.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: copy cron file
+    copy:
+      src   : root
+      dest  : /var/spool/cron/crontabs/root
+      owner : root
+      group : root
+      mode  : '0600'
+      backup: yes
+
+  - name: restart cron service
+    systemd:
+      unit: cron.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: rm temp install directory /install_tmp
+    file:
+      path: /install_tmp
+      state: absent
+
+...

@@ -1,0 +1,21 @@
+# Domain:
+domain: init6.ru
+
+# Hosts ip:
+backup: 10.68.7.10
+nginx: 10.68.7.11
+apache1: 10.68.7.12
+apache2: 10.68.7.13
+mysqlsrs: 10.68.7.14
+mysqlrep: 10.68.7.15
+monitor: 10.68.7.16
+elk: 10.68.7.17
+ansible: 10.68.7.18
+
+# Local network ips:
+local_net: 10.68.7.0/21
+
+# Zabbix:
+zabbix_key: 33d2fd362f932f39988351a61cd07f2b61438af6a89ab809157d506d15761cc4
+zabbix_psk_id: 10
+zabbix_db_password: Otus2025

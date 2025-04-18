@@ -1,0 +1,300 @@
+---
+# tasks file for nginx
+  - name: copy sources.list
+    template:
+      src   : sources.list.j2
+      dest  : /etc/apt/sources.list
+      owner : root
+      group : root
+      mode  : '0644'
+      backup: yes
+
+  - name: install a list of basic packages plus ngix
+    apt:
+      pkg:
+      - mc
+      - nfs-kernel-server
+      - telnet
+      - tree
+      - cifs-utils
+      - tcpdump
+      - sudo
+      - wget
+      - curl
+      - gnupg2
+      - zip
+      - nginx
+      - iptables
+      - iptables-persistent
+      - netfilter-persistent
+      update_cache: yes
+#      - rsyslog
+#      - prometheus-node-exporter      
+
+  - name: add line 1 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '####### add to all hostfiles #######'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 2 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ backup }}	backup.{{ domain }}	#Backup'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 3 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ nginx }}	nginx.{{ domain }}		#Nginx'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 4 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ apache1 }}	apache1.{{ domain }}		#Apache 1'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 5 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ apache2 }}	apache2.{{ domain }}		#Apache 2'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 6 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ mysqlsrs }}	mysqlsrs.{{ domain }}	#MySQL source'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 7 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ mysqlrep }}	mysqlrep.{{ domain }}	#MySQL replica'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 8 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ monitor }}	monitor.{{ domain }}		#Monitoring'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 9 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '{{ elk }}	elk.{{ domain }}		#ELK stack'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: add line 10 to /etc/hosts
+    ansible.builtin.lineinfile:
+      path   : /etc/hosts
+      line   : '###########################'
+      create : yes
+      owner  : root
+      group  : root
+      mode   : '0644'
+
+  - name: Download Zabbix repo package
+    get_url:
+      url: "https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb"
+      dest: "/tmp/zabbix-release_latest_7.2+debian12_all.deb"
+
+  - name: Install Zabbix repo package
+    apt:
+      deb: "/tmp/zabbix-release_latest_7.2+debian12_all.deb"
+
+  - name: Zabbix agent 2 install - install 7.2 latest agent
+    apt:
+      pkg:
+      - zabbix-agent2
+      update_cache: yes
+
+  - name: make zabbix_agent2.conf from template
+    template: 
+      src: zabbix_agent2.conf.j2
+      dest: /etc/zabbix/zabbix_agent2.conf
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: make zabbix_agentd.psk from template
+    template: 
+      src: zabbix_agentd.psk.j2
+      dest: /etc/zabbix/zabbix_agentd.psk
+      owner: zabbix
+      group: zabbix
+      mode: '400'
+  
+  - name: restart Zabbix agent 2
+    systemd:
+      unit: zabbix-agent2.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: copy open rsa key for NGINX
+    copy: 
+      src: "../../files/fullchain.pem"
+      dest: /etc/ssl/certs/fullchain.pem
+      owner: root
+      group: root
+      mode: '600'
+
+  - name: copy private rsa key for NGINX
+    copy: 
+      src: "../../files/cert.key"
+      dest: /etc/ssl/private/cert.key
+      owner: root
+      group: root
+      mode: '600'
+
+  - name: transfer default config for NGINX
+    template: 
+      src: default.j2
+      dest: /etc/nginx/sites-available/default
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: transfer Zabbix config for NGINX
+    template: 
+      src: zabbix.j2
+      dest: /etc/nginx/sites-available/zabbix
+      owner: root
+      group: root
+      mode: '644' 
+
+  - name: Enable Zabbix site in NGINX
+    file:
+      src: /etc/nginx/sites-available/zabbix
+      dest: /etc/nginx/sites-enabled/zabbix
+      state: link
+      force: yes
+
+  - name: transfer Grafana config for NGINX
+    template: 
+      src: grafana.j2
+      dest: /etc/nginx/sites-available/grafana
+      owner: root
+      group: root
+      mode: '644' 
+
+  - name: Enable Grafana site in NGINX
+    file:
+      src: /etc/nginx/sites-available/grafana
+      dest: /etc/nginx/sites-enabled/grafana
+      state: link
+      force: yes
+
+  - name: transfer elk config for NGINX
+    template: 
+      src: elk.j2
+      dest: /etc/nginx/sites-available/elk
+      owner: root
+      group: root
+      mode: '644' 
+
+  - name: Enable elk site in NGINX
+    file:
+      src: /etc/nginx/sites-available/elk
+      dest: /etc/nginx/sites-enabled/elk
+      state: link
+      force: yes
+
+  - name: restart nginx
+    systemd:
+      unit: nginx
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: Ensure /install_tmp directory exists
+    file:
+      path: /install_tmp
+      state: directory
+      mode: '0755'
+      owner: root
+      group: root  
+
+  - name: Check file exists /install_tmp/filebeat_8.9.1_amd64.deb
+    stat:
+      path: /install_tmp/filebeat_8.9.1_amd64.deb
+    register: filebeat_deb
+
+  - name: Downloading filebeat_8.9.1_amd64.deb
+    get_url:
+      url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.9.1-amd64.deb
+      dest: /install_tmp/filebeat_8.9.1_amd64.deb
+      mode: '0644'
+    when: not filebeat_deb.stat.exists
+
+  - name: install Filebeat for NGINX
+    apt:
+      deb: /install_tmp/filebeat_8.9.1_amd64.deb
+
+  - name: rm filebeat_8.9.1_amd64.deb file after install
+    file:
+      path: /install_tmp/filebeat_8.9.1_amd64.deb
+      state: absent
+
+  - name: transfer config for Filebeat
+    template: 
+      src: filebeat.yml.j2
+      dest: /etc/filebeat/filebeat.yml
+      owner: root
+      group: root
+      mode: '600'
+
+  - name: restart Filebeat
+    systemd:
+      unit: filebeat.service
+      state: restarted
+      enabled: yes
+      daemon_reload: yes
+
+  - name: rm temp install directory /install_tmp
+    file:
+      path: /install_tmp
+      state: absent
+
+  - name: Upload iptables rules template
+    template:
+      src: iptable_rules.j2
+      dest: /tmp/iptable_rules
+      mode: '0644'
+
+  - name: Apply iptables rules from /tmp/iptable_rules
+    shell: iptables-restore < /tmp/iptable_rules
+    become: true
+
+  - name: Save current iptables rules to /etc/iptables/rules.v4
+    shell: iptables-save > /etc/iptables/rules.v4
+    become: true
+...

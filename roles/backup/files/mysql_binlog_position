@@ -1,0 +1,600 @@
+----------------------------------------------
+2024-06-19_03h-12m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1073
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1073
+----------------------------------------------
+2024-06-19_03h-55m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1142
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1142
+----------------------------------------------
+2024-06-19_05h-31m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1176
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1176
+----------------------------------------------
+2024-06-19_06h-00m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1176
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1176
+----------------------------------------------
+2024-06-20_06h-00m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1176
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1176
+----------------------------------------------
+2024-06-22_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+----------------------------------------------
+2024-06-23_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+----------------------------------------------
+2024-06-24_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+----------------------------------------------
+2024-06-25_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1241
+----------------------------------------------
+2024-06-26_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1278
+            Executed_Gtid_Set: 0a91d147-2791-11ef-a41c-bc24115f09d0:1-1278
+----------------------------------------------
+2024-06-27_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 2436e092-3345-11ef-a2ce-bc24115f09d0:4-232
+            Executed_Gtid_Set: 2436e092-3345-11ef-a2ce-bc24115f09d0:1-232
+----------------------------------------------
+2024-06-30_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-126
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-126
+----------------------------------------------
+2024-07-01_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-126
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-126
+----------------------------------------------
+2024-07-02_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-126
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-126
+----------------------------------------------
+2024-07-03_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-160
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-160
+----------------------------------------------
+2024-07-04_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-160
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-160
+----------------------------------------------
+2024-07-05_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-160
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-160
+----------------------------------------------
+2024-07-06_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-07_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-08_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-09_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-10_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-11_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-12_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-13_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-14_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-15_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-16_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-17_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-18_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-19_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-20_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-21_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-22_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-23_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-24_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-25_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-26_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-27_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-28_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-29_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-30_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-07-31_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-01_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-02_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-03_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-04_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-05_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-06_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-07_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-08_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-09_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-10_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-11_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-12_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-13_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-14_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-15_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-16_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-17_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-18_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-19_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-20_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-21_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-22_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-23_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-24_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-25_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-26_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-27_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-28_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-29_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-30_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-08-31_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-01_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-02_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-03_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-04_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-05_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-06_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-07_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-08_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-09_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-10_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-11_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-12_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-13_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-14_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-15_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-16_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-17_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2024-09-18_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+            Executed_Gtid_Set: 3db42e80-35ea-11ef-b2af-bc24117e5857:1-196
+----------------------------------------------
+2025-02-14_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-15_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-16_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-17_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-18_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-19_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-20_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-21_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-22_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-23_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-24_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-25_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-26_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-27_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-02-28_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-01_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-02_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-03_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-04_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-05_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-06_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-07_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-08_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-09_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-10_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-11_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-12_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-13_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-14_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-15_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-16_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-17_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-18_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-19_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-20_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-21_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-22_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-23_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-24_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-25_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-26_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-64
+----------------------------------------------
+2025-03-26_19h-16m Current binlog position:
+           Retrieved_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-249
+            Executed_Gtid_Set: 46f076e7-ea33-11ef-aebf-bc24110e40d9:1-249
+----------------------------------------------
+2025-03-27_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-69
+            Executed_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-69
+----------------------------------------------
+2025-03-28_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-108
+            Executed_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-108
+----------------------------------------------
+2025-03-29_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-150
+            Executed_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-150
+----------------------------------------------
+2025-03-30_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-150
+            Executed_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-150
+----------------------------------------------
+2025-03-31_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-150
+            Executed_Gtid_Set: 37fb8bec-0a68-11f0-8c26-bc24119fa0ba:1-150
+----------------------------------------------
+2025-04-01_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: 8fe5668a-0e5e-11f0-992c-bc2411149e91:1-106
+            Executed_Gtid_Set: 8fe5668a-0e5e-11f0-992c-bc2411149e91:1-106
+----------------------------------------------
+2025-04-02_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: bf70ee59-0ed4-11f0-8a4f-bc2411f680df:1-96
+            Executed_Gtid_Set: bf70ee59-0ed4-11f0-8a4f-bc2411f680df:1-96
+----------------------------------------------
+2025-04-03_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-64
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-64
+----------------------------------------------
+2025-04-04_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-166
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-166
+----------------------------------------------
+2025-04-05_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+----------------------------------------------
+2025-04-06_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+----------------------------------------------
+2025-04-07_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+----------------------------------------------
+2025-04-08_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-225
+----------------------------------------------
+2025-04-09_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-228
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-228
+----------------------------------------------
+2025-04-10_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-231
+            Executed_Gtid_Set: dcdb9b52-0fe8-11f0-abfe-bc2411f680df:1-231
+----------------------------------------------
+2025-04-11_00h-00m Current binlog position:
+           Retrieved_Gtid_Set: f8ab0aa7-15dd-11f0-937f-bc24114d569a:1-66
+            Executed_Gtid_Set: f8ab0aa7-15dd-11f0-937f-bc24114d569a:1-66
