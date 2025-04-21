@@ -7,10 +7,25 @@
 
 ### 1) Зайдите на OS, с установленным Ansible, с root доступом.
    - Примечание: используйте пользователя **root** либо команды: **su - root** либо **sudo -i**
-### 2) Выполните данную команду на удаленной машине:
+### 2) Создайте папку для проекта:
 ```
-apt update -y && apt install git -y ; git clone https://github.com/avlikh/Otus_linux_pro_project.git;
+mkdir /ansible; cd /ansible
 ```
+### 3) Клонируте репозиторий проекта с Github:
+```
+apt update -y && apt install git -y; git clone https://github.com/avlikh/Otus_linux_pro_project.git .
+```
+### 4) Сгенерируйте пару rsa-ключей (если их нет):
+
+```
+ssh-keygen -t rsa -q -f "/root/.ssh/id_rsa" -N ""
+```
+### 5) Выполним роль, которая распространит rsa-ключи на все хосты ландшавта. Для этого, запустим provision.yml с тегом "keys"
+
+```
+ansible-playbook provision.yml --tags "keys" -u root --ask-pass
+```
+
 ### 3) Далее потребуется ввести 1 раз пароль для запуска первого Ansible playbook, при выполнении которого будут установлены rsa.pub ключи на хостовые машины
 ### 4) Выпейте чашку кофе или чая - Ansible будет разварачивать ландшавт около 15-20 минут
 ### 5) Выполните настройку источников данных и дашбордов Grafana: http://10.68.7.16:3000/login
