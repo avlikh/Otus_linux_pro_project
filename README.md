@@ -5,7 +5,7 @@
 ![image](https://github.com/user-attachments/assets/0602e54a-213a-411d-bd90-72ede9353c69)
 
 
-Для развертывания demo-стенда необходимо иметь следующие подготовленные виртуальные машины с debian  12:
+#### Для развертывания demo-стенда необходимо иметь следующие подготовленные виртуальные машины с debian  12:
 
 <table>
     <tr>
@@ -70,8 +70,16 @@
         <td align=center>2</td>
         <td align=center>6</td>
         <td align=center>15</td>
-    </tr>  
+    </tr>
+    <tr>
+        <td align=center>ansible*</td>
+        <td align=center>10.68.7.18</td>
+        <td align=center>1</td>
+        <td align=center>1</td>
+        <td align=center>5</td>
+    </tr> 
 </table>
+*Роль Ansible-хоста может выполнить любая машина, имеющая доступ к сети стенда.
 
 ### 1) Зайдите на OS, с установленным Ansible, с root доступом.
    - Примечание: используйте пользователя **root** либо команды: **su - root** либо **sudo -i**
@@ -83,21 +91,42 @@ mkdir /ansible; cd /ansible
 ```
 apt update -y && apt install git -y; git clone https://github.com/avlikh/Otus_linux_pro_project.git .
 ```
-### 4) Сгенерируйте пару rsa-ключей (если их нет):
+### 4) Что бы изменить ip-адреса, внесите изменения в файлы hosts.ini и group_vars/all.yml :
+```
+nano hosts.ini
+nano group_vars/all.yml
+```
+
+### 5) Сгенерируйте пару rsa-ключей (если их нет):
 
 ```
 ssh-keygen -t rsa -q -f "/root/.ssh/id_rsa" -N ""
 ```
-### 5) Выполним роль, которая распространит rsa-ключи на все хосты ландшавта. Для этого, запустим provision.yml с тегом "keys"
+### 6) Выполним роль, которая распространит rsa-ключи на все хосты ландшавта. Для этого, запустим provision.yml с тегом "keys"
 
 ```
 ansible-playbook provision.yml --tags "keys" -u root --ask-pass
 ```
-### 6) Развернем ландшавт выполнив команду:
+### 7) Развернем ландшавт выполнив команду:
 ```
 ansible-playbook provision.yml
 ```
 
+**Сайт**
+https://init6.ru/	**сайт**	
+https://init6.ru/wp-admin **Админка сайта** admin/Init0000####    
+     
+**Мониторинг:**
+https://zabbix.init6.ru/zabbix/ **Заббикс**	Admin/zabbix     
+https://grafana.init6.ru/	**Grafana**	admin/admin     
+      
+**Логи:**      
+https://elk.init6.ru/		**Elk**      
+Имитация событий:     
+0	emerg	logger -p user.emerg "Emergency level log"     
+1	alert	logger -p user.alert "Alert level log"     
+2	crit	logger -p user.crit "Critical level log"     
+3	err	logger -p user.err "Error level log"     
 
 ### 3) Далее потребуется ввести 1 раз пароль для запуска первого Ansible playbook, при выполнении которого будут установлены rsa.pub ключи на хостовые машины
 ### 4) Выпейте чашку кофе или чая - Ansible будет разварачивать ландшавт около 15-20 минут
