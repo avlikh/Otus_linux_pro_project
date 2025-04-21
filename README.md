@@ -2,7 +2,8 @@
 
 ## Схема проекта:
 
-![image](https://github.com/user-attachments/assets/0602e54a-213a-411d-bd90-72ede9353c69)
+![image](https://github.com/user-attachments/assets/9354cd6a-644d-4bfe-a7ff-1dc2428b0fd1)
+
 
 
 #### Для развертывания demo-стенда необходимо иметь следующие подготовленные виртуальные машины с debian  12:
