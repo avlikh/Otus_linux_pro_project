@@ -112,21 +112,96 @@ ansible-playbook provision.yml --tags "keys" -u root --ask-pass
 ansible-playbook provision.yml
 ```
 
-**Сайт**
-https://init6.ru/	**сайт**	
-https://init6.ru/wp-admin **Админка сайта** admin/Init0000####    
-     
-**Мониторинг:**
-https://zabbix.init6.ru/zabbix/ **Заббикс**	Admin/zabbix     
-https://grafana.init6.ru/	**Grafana**	admin/admin     
-      
-**Логи:**      
-https://elk.init6.ru/		**Elk**      
-Имитация событий:     
-0	emerg	logger -p user.emerg "Emergency level log"     
-1	alert	logger -p user.alert "Alert level log"     
-2	crit	logger -p user.crit "Critical level log"     
-3	err	logger -p user.err "Error level log"     
+<table>
+    <tr>
+        <td colspan="4" align=center>Сайт</td>
+    </tr>
+    <tr>
+        <td align=center>URL</td>
+        <td align=center>Описание</td>
+        <td align=center>Логин</td>
+        <td align=center>Пароль</td>
+    </tr>
+    <tr>
+        <td align=center>https://init6.ru/</td>
+        <td align=center>Сайт</td>
+        <td align=center></td>
+        <td align=center></td>
+    </tr>
+    <tr>
+        <td align=center>https://init6.ru/wp-admin</td>
+        <td align=center>Админка сайта</td>
+        <td align=center>admin</td>
+        <td align=center>Init0000####</td>
+    </tr>
+    <tr>
+        <td colspan="4" align=center>Мониторинг</td>
+    </tr>
+    <tr>
+        <td align=center>URL</td>
+        <td align=center>Описание</td>
+        <td align=center>Логин</td>
+        <td align=center>Пароль</td>
+    </tr>
+    <tr>
+        <td align=center>https://zabbix.init6.ru/zabbix/</td>
+        <td align=center>Заббикс</td>
+        <td align=center>Admin</td>
+        <td align=center>zabbix</td>
+    </tr>
+    <tr>
+        <td align=center>https://grafana.init6.ru/</td>
+        <td align=center>Grafana</td>
+        <td align=center>admin</td>
+        <td align=center>admin</td>
+    </tr>
+    <tr>
+        <td colspan="4" align=center>Логгирование</td>
+    </tr>
+    <tr>
+        <td align=center>URL</td>
+        <td align=center>Описание</td>
+        <td align=center>Логин</td>
+        <td align=center>Пароль</td>
+    </tr>
+    <tr>
+        <td align=center>https://elk.init6.ru/</td>
+        <td align=center>Elk</td>
+        <td align=center></td>
+        <td align=center></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan="3" align=center>Иммитируем события журнала</td>
+    </tr>
+    <tr>
+        <td align=center>Уровень события</td>
+        <td align=center>Уровень события</td>
+        <td align=center>Команда</td>
+    </tr>
+    <tr>
+        <td align=center>0</td>
+        <td align=center>emerg</td>
+        <td align=center>logger -p user.emerg "Emergency level log"</td>
+    </tr>
+    <tr>
+        <td align=center>1</td>
+        <td align=center>alert</td>
+        <td align=center>logger -p user.alert "Alert level log"</td>
+    </tr>
+    <tr>
+        <td align=center>2</td>
+        <td align=center>crit</td>
+        <td align=center>logger -p user.crit "Critical level log"</td>
+    </tr>
+    <tr>
+        <td align=center>3</td>
+        <td align=center>err</td>
+        <td align=center>logger -p user.err "Error level log"</td>
+    </tr>
+</table>
 
 ### 3) Далее потребуется ввести 1 раз пароль для запуска первого Ansible playbook, при выполнении которого будут установлены rsa.pub ключи на хостовые машины
 ### 4) Выпейте чашку кофе или чая - Ansible будет разварачивать ландшавт около 15-20 минут
