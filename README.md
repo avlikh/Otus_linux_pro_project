@@ -204,8 +204,55 @@ ansible-playbook provision.yml
     </tr>
 </table>
 
-### 3) Далее потребуется ввести 1 раз пароль для запуска первого Ansible playbook, при выполнении которого будут установлены rsa.pub ключи на хостовые машины
-### 4) Выпейте чашку кофе или чая - Ansible будет разварачивать ландшавт около 15-20 минут
-### 5) Выполните настройку источников данных и дашбордов Grafana: http://10.68.7.16:3000/login
-### 6) Зайдите на Nginx и нагенерируйте запросов для Elastic: http://10.68.7.11/
-### 7) Добавьте источник данных и визуализацию в Elastic: http://10.68.7.17:5601
+### Восстановим Backup:
+```
+ansible-playbook provision.yml --tags "backup,restorewww"
+```
+
+### Восстановим NGINX:
+```
+ansible-playbook provision.yml --tags "nginx"
+```
+
+### Восстановим Apache1:
+```
+ansible-playbook provision.yml --tags "apache1"
+```
+
+### Восстановим Apache2:
+```
+ansible-playbook provision.yml --tags "apache2"
+```
+
+### Восстановим MySQL_SRS:
+Зайдем на хост mysqlrep и запустим бэкап Mysql
+```
+/scripts/backup_mysql.sh
+```
+
+Запустим Ansible task c тегом "mysql"
+```
+ansible-playbook provision.yml --tags "mysql"
+```
+
+### Восстановим MySQL_REP:
+Зайдем на хост mysqlsrs и запустим бэкап Mysql
+```
+/scripts/backup_mysql_srs.sh
+```
+
+Запустим Ansible task c тегом "mysql"
+```
+ansible-playbook provision.yml --tags "mysql"
+```
+
+### Восстановим Monitoring:
+```
+ansible-playbook provision.yml --tags "monitoring"
+```
+
+### Восстановим ELK:
+```
+ansible-playbook provision.yml --tags "elk"
+```
+
