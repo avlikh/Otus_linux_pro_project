@@ -63,7 +63,7 @@
     - monitoring
   tags: monitoring
 
-- name: Monitoring setup 
+- name: ELK setup 
   hosts: elk
   gather_facts: yes
   become: yes
