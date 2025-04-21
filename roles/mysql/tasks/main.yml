@@ -421,6 +421,16 @@
       backup: yes
     when: inventory_hostname == "mysqlsrs"
 
+  - name: copy backup and restore scripts backup_mysql_srs.sh.j2
+    template:
+      src   : backup_mysql_srs.sh.j2
+      dest  : /scripts/backup_mysql_srs.sh
+      owner : root
+      group : root
+      mode  : '0755'
+      backup: yes
+    when: inventory_hostname == "mysqlsrs" 
+
   - name: restore Wordpress MySQL database
     shell: 
       cmd: "/scripts/restore_mysql.sh"
