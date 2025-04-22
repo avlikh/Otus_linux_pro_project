@@ -2,7 +2,8 @@
 
 ## Схема проекта:
 
-![image](https://github.com/user-attachments/assets/9354cd6a-644d-4bfe-a7ff-1dc2428b0fd1)
+![image](https://github.com/user-attachments/assets/f5cfa3fd-7f82-4df6-b046-522d3f38ca1c)
+
 
 
 
